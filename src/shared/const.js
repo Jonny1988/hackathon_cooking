@@ -27,7 +27,7 @@ Logger.handleExceptions(new Winston.transports.File({
 // Responses send by your bot
 const StartDialogMessages = {
     Greeting: 'Hello I´am your Bot, please type help for more information!',
-    AskForOption: "Hello, ask me anything about getCookingIdeas!",
+    AskForOption: "Hello, ask me anything about cooking!",
 };
 
 const HelpDialogMessage = {

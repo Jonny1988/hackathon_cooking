@@ -77,7 +77,7 @@ const getReceipesFromIngridients = (ingridients, callback) => {
             foundReceipes.push(oneReceipe);
         }
     });
-    return callback(err, foundReceipes);
+    return callback(null, foundReceipes);
 };
 
 const getReceipesBasedOnType = (type, callback) => {
