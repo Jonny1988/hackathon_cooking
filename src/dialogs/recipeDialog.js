@@ -1,22 +1,16 @@
 'use strict';
 const Builder = require('botbuilder');
 
-const Logger = require('../shared/const').Logger;
-const Messages = require('../shared/const').Messages;
+const { Logger, RecipeDialogMessage } = require('../shared/const');
 
-class recipeDialog {
-    constructor() { Logger.info('Created Instance of recipeDialog'); }
-    getName() { return 'recipeDialog'; } // Needs to be unique otherwise an error occurs during registration
+class IngredientsDialog {
+    constructor() { Logger.info('Created Instance of IngredientsDialog'); }
+    getName() { return 'recipesDialog'; } // Needs to be unique otherwise an error occurs during registration
 
-    askUserForName(session, args) {
-        //TODO: Session contain context information based on the channel and the user
-
-        Builder.Prompts.text(session, Messages.AskForName); // The result of this input will be forwarded to the next step
+    getRecipes(session, args) {
+        Builder.Prompts.text(session, RecipeDialogMessage.Recipe); // The result of this input will be forwarded to the next step
     }
 
-    greetUser(session, result) {
-        session.send(Messages.PersonalGreeting.replace('%s', result.response)).endDialog();
-    }
 }
 
-module.exports = new recipeDialog();
+module.exports = new IngredientsDialog();

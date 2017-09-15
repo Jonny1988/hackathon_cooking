@@ -1,6 +1,6 @@
 'use strict';
 const Builder = require('botbuilder');
-const { Logger, Messages, Endpoint, Intents } = require('./shared/const');
+const { Logger, StartDialogMessages, Endpoint, Intents } = require('./shared/const');
 //const JsonStorage = require('./data/BotJsonStore');
 
 
@@ -51,10 +51,9 @@ class YourBot {
     constructor(connector, recognizer) {
         this.core = new Builder.UniversalBot(connector, (session, args) => {
             //TODO: Default Handler that will be called if no dialog or other handler triggers
-            session.send(Messages.Greeting);
+            session.send(StartDialogMessages.Greeting);
         });
 
-        this.core.recognizer(recognizer);
         //this.core.set('storage', new JsonStorage()); //TODO: Remove this line to use memory storage (State will be lost after shutdown)
         this.init();
     }
@@ -62,24 +61,22 @@ class YourBot {
 
     init() {
         //TODO: Add your dialogs to the bot
-        this.core.dialog(StartDialog.getName(), [StartDialog.askUserForName, StartDialog.greetUser])
+        this.core.dialog(StartDialog.getName(), [StartDialog.askForUserChoice])
             .triggerAction({ matches: /^(start)/i })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
-        this.core.dialog(IngredientsDialog.getName(), [IngredientsDialog.askUserForName, IngredientsDialog.greetUser])
+        this.core.dialog(IngredientsDialog.getName(), [IngredientsDialog.getRecipeForIngredients])
             .triggerAction({ matches: /^(ingredients)/i })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
-        this.core.dialog(RecipeDialog.getName(), [RecipeDialog.askUserForName, RecipeDialog.greetUser])
+        this.core.dialog(RecipeDialog.getName(), [RecipeDialog.getRecipes])
             .triggerAction({ matches: /^(recipe)/i })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
-        this.core.dialog(HelpDialog.getName(), [HelpDialog.askUserForName, HelpDialog.greetUser])
+        this.core.dialog(HelpDialog.getName(), [HelpDialog.askForHelp])
             .triggerAction({ matches: /^(help)/i })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
-        this.core.dialog(CookingIdeasDialog.getName(), [CookingIdeasDialog.askUserForName, CookingIdeasDialog.greetUser])
+        this.core.dialog(CookingIdeasDialog.getName(), [CookingIdeasDialog.getCookingIdeas])
             .triggerAction({ matches: /^(ideas)/i })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
     }
-
-
 }
 
 module.exports = {

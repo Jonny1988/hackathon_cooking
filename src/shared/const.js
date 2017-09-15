@@ -25,11 +25,22 @@ Logger.handleExceptions(new Winston.transports.File({
 }));
 
 // Responses send by your bot
-const startDialogMessages = {
-    Greeting: 'Hello I´am your Bot, please extend my features!',
-    AskForOption : "What do you want to do?",
-    AskForName: 'What is your name?',
-    PersonalGreeting: 'Hello %s!'
+const StartDialogMessages = {
+    Greeting: 'Hello I´am your Bot, please type help for more information!',
+    AskForOption: "Hello, ask me anything about getCookingIdeas!",
+};
+
+const HelpDialogMessage = {
+    GetHelp : "help"
+};
+const RecipeDialogMessage = {
+    Recipe : "recipe"
+};
+const IngredientsDialogMessage = {
+    Ingredients : "Here are you recipes that contains "
+};
+const CookingIdeasDialogMessage = {
+    Cooking : "getCookingIdeas"
 };
 
 // TODO: Extend the Intents based on LUIS if you use it
@@ -39,7 +50,11 @@ const Intents = {
 
 module.exports = {
     Logger: Logger,
-    startDialogMessages: startDialogMessages,
+    StartDialogMessages: StartDialogMessages,
+    RecipeDialogMessage: RecipeDialogMessage,
+    IngredientsDialogMessage: IngredientsDialogMessage,
+    HelpDialogMessage: HelpDialogMessage,
+    CookingIdeasDialogMessage: CookingIdeasDialogMessage,
     Endpoint: '/api/messages',
     Intents: Intents
 }
