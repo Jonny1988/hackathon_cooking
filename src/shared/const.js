@@ -25,8 +25,9 @@ Logger.handleExceptions(new Winston.transports.File({
 }));
 
 // Responses send by your bot
-const Messages = {
+const startDialogMessages = {
     Greeting: 'Hello I´am your Bot, please extend my features!',
+    AskForOption : "What do you want to do?",
     AskForName: 'What is your name?',
     PersonalGreeting: 'Hello %s!'
 };
@@ -38,7 +39,7 @@ const Intents = {
 
 module.exports = {
     Logger: Logger,
-    Messages: Messages,
+    startDialogMessages: startDialogMessages,
     Endpoint: '/api/messages',
     Intents: Intents
 }

@@ -4,7 +4,11 @@ const { Logger, Messages, Endpoint, Intents } = require('./shared/const');
 //const JsonStorage = require('./data/BotJsonStore');
 
 
-const BaseDialog = require('./dialogs/startDialog');
+const StartDialog = require('./dialogs/startDialog');
+const RecipeDialog = require('./dialogs/recipeDialog');
+const IngredientsDialog = require('./dialogs/ingredientsDialog');
+const CookingIdeasDialog = require('./dialogs/cookingIdeasDialog');
+const HelpDialog = require('./dialogs/helpDialog');
 
 
 
@@ -58,8 +62,20 @@ class YourBot {
 
     init() {
         //TODO: Add your dialogs to the bot
-        this.core.dialog(BaseDialog.getName(), [BaseDialog.askUserForName, BaseDialog.greetUser])
-            .triggerAction({ matches: /^(hello)/i })
+        this.core.dialog(StartDialog.getName(), [StartDialog.askUserForName, StartDialog.greetUser])
+            .triggerAction({ matches: /^(start)/i })
+            .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
+        this.core.dialog(IngredientsDialog.getName(), [IngredientsDialog.askUserForName, IngredientsDialog.greetUser])
+            .triggerAction({ matches: /^(ingredients)/i })
+            .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
+        this.core.dialog(RecipeDialog.getName(), [RecipeDialog.askUserForName, RecipeDialog.greetUser])
+            .triggerAction({ matches: /^(recipe)/i })
+            .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
+        this.core.dialog(HelpDialog.getName(), [HelpDialog.askUserForName, HelpDialog.greetUser])
+            .triggerAction({ matches: /^(help)/i })
+            .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
+        this.core.dialog(CookingIdeasDialog.getName(), [CookingIdeasDialog.askUserForName, CookingIdeasDialog.greetUser])
+            .triggerAction({ matches: /^(ideas)/i })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
     }
 

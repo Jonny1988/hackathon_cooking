@@ -5,8 +5,8 @@ const Logger = require('../shared/const').Logger;
 const Messages = require('../shared/const').Messages;
 
 class ingredientsDialog {
-    constructor() { Logger.info('Created Instance of HelloWorldDialog'); }
-    getName() { return 'UserInputDialog'; } // Needs to be unique otherwise an error occurs during registration
+    constructor() { Logger.info('Created Instance of ingredientsDialog'); }
+    getName() { return 'ingredientsDialog'; } // Needs to be unique otherwise an error occurs during registration
 
     askUserForName(session, args) {
         //TODO: Session contain context information based on the channel and the user
