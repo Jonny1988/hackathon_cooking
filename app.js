@@ -1,7 +1,7 @@
 'use strict';
 const Restify = require('restify');
-const { Logger } = require('./src/shared/const');
-const { Builder } = require('./src/bot');
+const { Logger } = require('./src/shared/const').Logger;
+const { Builder } = require('./src/bot').Builder;
 
 //-- Setup Configuration --//
 const HOST = process.env.HOST || 'localhost';
