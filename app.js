@@ -1,22 +1,18 @@
-var restify = require('restify');
-var builder = require('botbuilder');
+'use strict';
+const Restify = require('restify');
+const Logger = require('./src/shared/const').Logger;
+const Builder = require('./src/bot').Builder;
 
-// Setup Restify Server
-var server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function () {
-    console.log('%s listening to %s', server.name, server.url);
-});
+//-- Setup Configuration --//
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 3978;
 
-// Create chat connector for communicating with the Bot Framework Service
-var connector = new builder.ChatConnector({
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
-});
+//-- Setup Restify Server --//
+var server = Restify.createServer();
+server.listen(PORT, HOST, () => {
+    Logger.info('%s listening to %s', server.name, server.url)
+})
 
-// Listen for messages from users
-server.post('/api/messages', connector.listen());
-
-// Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
-var bot = new builder.UniversalBot(connector, function (session) {
-    session.send("You said: %s", session.message.text);
-});
+//-- Setup Bot --//
+var builder = new Builder();
+var bot = builder.withConnector(server).withRecognizer().build();
