@@ -1,4 +1,4 @@
-startDialog.jsstartDialog.js'use strict';
+'use strict';
 const Builder = require('botbuilder');
 
 const Logger = require('../shared/const').Logger;

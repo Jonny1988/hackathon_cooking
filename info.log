@@ -1,1 +1,3 @@
 {"level":"info","message":"Created Instance of HelloWorldDialog","timestamp":"2017-09-15T19:48:37.575Z"}
+{"level":"info","message":"Created Instance of HelloWorldDialog","timestamp":"2017-09-15T20:44:16.389Z"}
+{"level":"info","message":"restify listening to http://127.0.0.1:3978","timestamp":"2017-09-15T20:44:16.416Z"}
