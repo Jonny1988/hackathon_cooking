@@ -1,4 +1,4 @@
-'use strict';
+use strict';
 const Fs = require('fs');
 const Path = require('path');
 
@@ -37,9 +37,9 @@ module.exports = class JsonStorage {
                 if (err) { cb(err, null) }
                 else {
                     this.current = JSON.parse(data);
-            cb(null, this.current[resolveKey(ctx)] || {})
-        }
-        });
+                    cb(null, this.current[resolveKey(ctx)] || {})
+                }
+            });
         }
     }
     // Based on API you have to implement this method

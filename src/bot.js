@@ -1,10 +1,7 @@
 'use strict';
 const Builder = require('botbuilder');
-
-const Logger = require('../shared/const').Logger;
-const Messages = require('../shared/const').Messages;//const JsonStorage = require('./data/BotJsonStore');
-const Endpoint = require('../shared/const').Endpoint;
-const Intents = require('../shared/const').Intents;
+const { Logger, Messages, Endpoint, Intents } = require('./shared/const');
+//const JsonStorage = require('./data/BotJsonStore');
 
 
 const BaseDialog = require('./dialogs/startDialog');
@@ -49,9 +46,9 @@ class YourBotBuilder {
 class YourBot {
     constructor(connector, recognizer) {
         this.core = new Builder.UniversalBot(connector, (session, args) => {
-                //TODO: Default Handler that will be called if no dialog or other handler triggers
-                session.send(Messages.Greeting);
-    });
+            //TODO: Default Handler that will be called if no dialog or other handler triggers
+            session.send(Messages.Greeting);
+        });
 
         this.core.recognizer(recognizer);
         //this.core.set('storage', new JsonStorage()); //TODO: Remove this line to use memory storage (State will be lost after shutdown)
@@ -65,8 +62,10 @@ class YourBot {
             .triggerAction({ matches: /^(hello)/i })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
     }
+
+
 }
 
 module.exports = {
     Builder: YourBotBuilder
-};
+}

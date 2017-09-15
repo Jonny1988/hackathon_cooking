@@ -1,11 +1,10 @@
 'use strict';
 const Builder = require('botbuilder');
 
-const Logger = require('../shared/const').Logger;
-const Messages = require('../shared/const').Messages;
+const { Logger, Messages } = require('../shared/const');
 
-class startDialog {
-    constructor() { Logger.info('Created Instance of startDialog'); }
+class HelloWorldDialog {
+    constructor() { Logger.info('Created Instance of HelloWorldDialog'); }
     getName() { return 'UserInputDialog'; } // Needs to be unique otherwise an error occurs during registration
 
     askUserForName(session, args) {
@@ -19,4 +18,4 @@ class startDialog {
     }
 }
 
-module.exports = new startDialog();
+module.exports = new HelloWorldDialog();

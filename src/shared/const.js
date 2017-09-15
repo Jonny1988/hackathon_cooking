@@ -14,7 +14,7 @@ const Logger = new Winston.Logger({
             name: 'error-file',
             filename: 'error.log',
             level: 'error'
-        })
+        }),
     ]
 });
 
@@ -34,11 +34,11 @@ const Messages = {
 // TODO: Extend the Intents based on LUIS if you use it
 const Intents = {
     SAMPLE: 'String.You.Insert.As.Intent.On.Luis'
-};
+}
 
 module.exports = {
     Logger: Logger,
     Messages: Messages,
     Endpoint: '/api/messages',
     Intents: Intents
-};
+}
