@@ -48,6 +48,8 @@ const Intents = {
     INGREDIENTS: 'search.after.ingredients',
     MEALTYPE: 'search.after.type',
     IDEAS: 'search.for.cooking.ideas',
+    START: 'start.chat',
+    HELP: 'help',
     URL: 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/1f914478-c907-4a55-8ac8-7d153107d61a?subscription-key=067d416c6f0247b4a886ea70668860a5&staging=true&verbose=true&timezoneOffset=0&q='
 };
 

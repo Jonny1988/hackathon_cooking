@@ -3,7 +3,6 @@ const Builder = require('botbuilder');
 const { Logger, StartDialogMessages, Endpoint, Intents } = require('./shared/const');
 //const JsonStorage = require('./data/BotJsonStore');
 
-
 const StartDialog = require('./dialogs/startDialog');
 const RecipeDialog = require('./dialogs/recipeDialog');
 const IngredientsDialog = require('./dialogs/ingredientsDialog');
@@ -62,23 +61,23 @@ class YourBot {
     init() {
         //TODO: Add your dialogs to the bot
         this.core.dialog(StartDialog.getName(), [StartDialog.askForUserChoice])
-            .triggerAction({ matches: /^(start)/i })
+            .triggerAction({ matches: Intents.START })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
         this.core.dialog(IngredientsDialog.getName(), [IngredientsDialog.getRecipeForIngredients])
-            .triggerAction({ matches: /^(ingredients)/i })
+            .triggerAction({ matches: Intents.INGREDIENTS })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
         this.core.dialog(RecipeDialog.getName(), [RecipeDialog.getRecipes])
-            .triggerAction({ matches: /^(recipe)/i })
+            .triggerAction({ matches: Intents.MEALTYPE })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
         this.core.dialog(HelpDialog.getName(), [HelpDialog.askForHelp])
-            .triggerAction({ matches: /^(help)/i })
+            .triggerAction({ matches: Intents.HELP })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
         this.core.dialog(CookingIdeasDialog.getName(), [CookingIdeasDialog.getCookingIdeas])
-            .triggerAction({ matches: /^(ideas)/i })
+            .triggerAction({ matches: Intents.IDEAS })
             .cancelAction('CancelPlaceAdding', 'Okay', { matches: /^(cancel|nevermind|abort)/i });
     }
 }
 
 module.exports = {
     Builder: YourBotBuilder
-}
+};
