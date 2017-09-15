@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Jonny1988/hackathon_cooking#readme",
   "dependencies": {
-    "botbuilder": "^3.9.1"
+    "botbuilder": "^3.9.1",
+    "restify": "^6.0.0"
   }
 }
