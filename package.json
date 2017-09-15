@@ -1,0 +1,26 @@
+{
+  "name": "hackathon_cooking",
+  "version": "1.0.0",
+  "description": "liveperson hackathon bot for cooking",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonny1988/hackathon_cooking.git"
+  },
+  "keywords": [
+    "hackathon",
+    "cooking"
+  ],
+  "author": "cooking group",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jonny1988/hackathon_cooking/issues"
+  },
+  "homepage": "https://github.com/Jonny1988/hackathon_cooking#readme",
+  "dependencies": {
+    "botbuilder": "^3.9.1"
+  }
+}
