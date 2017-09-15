@@ -8,6 +8,7 @@ class IngredientsDialog {
     getName() { return 'ingredientsDialog'; } // Needs to be unique otherwise an error occurs during registration
 
     getRecipeForIngredients(session, args) {
+        console.log(session.dialogData);
         Builder.Prompts.text(session, IngredientsDialogMessage.Ingredients); // The result of this input will be forwarded to the next step
     }
 

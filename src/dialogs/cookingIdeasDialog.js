@@ -4,7 +4,7 @@ const Builder = require('botbuilder');
 const { Logger, CookingIdeasDialogMessage } = require('../shared/const');
 
 class IngredientsDialog {
-    constructor() { Logger.info('Created Instance of IngredientsDialog'); }
+    constructor() { Logger.info('Created Instance of cookingDialog'); }
     getName() { return 'cookingDialog'; } // Needs to be unique otherwise an error occurs during registration
 
     getCookingIdeas(session, args) {

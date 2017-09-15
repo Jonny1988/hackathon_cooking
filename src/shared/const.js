@@ -37,7 +37,7 @@ const RecipeDialogMessage = {
     Recipe : "recipe"
 };
 const IngredientsDialogMessage = {
-    Ingredients : "Here are you recipes that contains "
+    Ingredients : "What are your incredients"
 };
 const CookingIdeasDialogMessage = {
     Cooking : "getCookingIdeas"
