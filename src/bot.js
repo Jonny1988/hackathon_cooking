@@ -16,7 +16,7 @@ class YourBotBuilder {
     constructor() {
         this.appId = process.env.APP_ID || ''; // Can be emtpy, but remember to insert them in the emulator also
         this.appPw = process.env.APP_PW || ''; // Can be emtpy, but remember to insert them in the emulator also
-        this.luis = process.env.LUIS_URL || 'TODO-INSERT-LUIS-URK';
+        this.luis = process.env.LUIS_URL || Intents.URL;
         this.connector = null;
         this.recognizer = [];
     }

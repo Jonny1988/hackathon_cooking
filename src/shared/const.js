@@ -45,8 +45,11 @@ const CookingIdeasDialogMessage = {
 
 // TODO: Extend the Intents based on LUIS if you use it
 const Intents = {
-    SAMPLE: 'String.You.Insert.As.Intent.On.Luis'
-}
+    INGREDIENTS: 'search.after.ingredients',
+    MEALTYPE: 'search.after.type',
+    IDEAS: 'search.for.cooking.ideas',
+    URL: 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/1f914478-c907-4a55-8ac8-7d153107d61a?subscription-key=067d416c6f0247b4a886ea70668860a5&staging=true&verbose=true&timezoneOffset=0&q='
+};
 
 module.exports = {
     Logger: Logger,
@@ -57,4 +60,4 @@ module.exports = {
     CookingIdeasDialogMessage: CookingIdeasDialogMessage,
     Endpoint: '/api/messages',
     Intents: Intents
-}
+};
