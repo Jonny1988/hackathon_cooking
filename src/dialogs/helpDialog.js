@@ -4,9 +4,9 @@ const Builder = require('botbuilder');
 const Logger = require('../shared/const').Logger;
 const Messages = require('../shared/const').Messages;
 
-class recipeDialog {
-    constructor() { Logger.info('Created Instance of recipeDialog'); }
-    getName() { return 'recipeDialog'; } // Needs to be unique otherwise an error occurs during registration
+class helpDialog {
+    constructor() { Logger.info('Created Instance of helpDialog'); }
+    getName() { return 'userHelpDialog'; } // Needs to be unique otherwise an error occurs during registration
 
     askUserForName(session, args) {
         //TODO: Session contain context information based on the channel and the user
@@ -19,4 +19,4 @@ class recipeDialog {
     }
 }
 
-module.exports = new recipeDialog();
+module.exports = new helpDialog();
