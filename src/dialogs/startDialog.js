@@ -8,7 +8,7 @@ class StartDialog {
     getName() { return 'startDialog'; } // Needs to be unique otherwise an error occurs during registration
 
     askForUserChoice(session, args) {
-        session.response
+        session.response;
         Builder.Prompts.text(session, StartDialogMessages.AskForOption); // The result of this input will be forwarded to the next step
     }
 

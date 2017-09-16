@@ -1,5 +1,6 @@
 'use strict';
 const Builder = require('botbuilder');
+const foodApi = require('../services/foodService');
 
 const { Logger, IngredientsDialogMessage } = require('../shared/const');
 
@@ -8,7 +9,13 @@ class IngredientsDialog {
     getName() { return 'ingredientsDialog'; } // Needs to be unique otherwise an error occurs during registration
 
     getRecipeForIngredients(session, args) {
-        console.log(session.dialogData);
+        debugger;
+        const ingredients = args.intent.entities; //[0].entity; ist zb "tomatoe";
+        const ingredientName = [];
+        ingredients.each(function (ingredient, index, array) {
+            ingredientName.add(ingredient[index].entitiy);
+        });
+        const recipies = foodApi.getRecipesFromIngredients(ingredientName);
         Builder.Prompts.text(session, IngredientsDialogMessage.Ingredients); // The result of this input will be forwarded to the next step
     }
 
