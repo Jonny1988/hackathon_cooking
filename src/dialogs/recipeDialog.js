@@ -15,7 +15,19 @@ class RecipeDialog {
             mealName.push(meal.entitiy);
         });
         const recipies = foodApi.getRecipesFromIngredients(mealName);
-        Builder.Prompts.text(session, RecipeDialogMessage.Recipe); // The result of this input will be forwarded to the next step
+        var card = new Builder.ThumbnailCard(session)
+            .title(recipies[0].name)
+            .subtitle(recipies[0].ingredients)
+            .text(recipies[0].description)
+            .images([
+                Builder.CardImage.create(session, 'https://i.pinimg.com/originals/e9/ac/62/e9ac624779305034569b6cfe4002679a.jpg')
+            ])
+            .buttons([
+                Builder.CardAction.openUrl(session,recipies[0].url, 'see whole recipe')
+            ]);
+        // attach the card to the reply message
+        var msg = new Builder.Message(session).addAttachment(card);
+        session.send(msg);
     }
 
 }
