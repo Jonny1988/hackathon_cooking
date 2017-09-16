@@ -15,9 +15,12 @@ class IngredientsDialog {
             ingredientName.push(ingredients[index].entity);
         }
         const recipies = foodApi.getRecipesFromIngredients(ingredientName);
-        debugger;
+        var recipeName = "";
+        for( var rec in recipies){
+            recipeName = recipeName + ",\n" + ((recipies[rec].name==undefined?'' :recipies[rec].name ));
+        }
         Builder.Prompts.text(session, IngredientsDialogMessage.Ingredients.
-        replace('%s',ingredientName.toString()).replace('%t',recipies.name)); // The result of this input will be forwarded to the next step
+        replace('%s',ingredientName.toString()).replace('%t',recipeName)); // The result of this input will be forwarded to the next step
     }
 
 }

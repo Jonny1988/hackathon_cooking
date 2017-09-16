@@ -1,7 +1,7 @@
 'use strict';
 const recipes = require('./recipes.js');
 
-const getRandomIntInclusive = function(min, max) {
+const getRandomIntInclusive = function (min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
@@ -10,12 +10,10 @@ const getRandomIntInclusive = function(min, max) {
 const getRecipesFromIngredients = (ingredients, callback) => {
     debugger;
     const returnRecipes = [];
-    for (let i=0; i < ingredients.length; i++) {
-        for(var x in recipes.getRecipes()){
-            debugger;
-            if(recipes.getRecipes()[x].ingredients.toLowerCase().includes(ingredients[i].toLowerCase())){
-                return recipes.getRecipes()[x];
-            }
+    for (var x in recipes.getRecipes()) {
+        debugger;
+        if (recipes.getRecipes()[x].ingredients.includes(ingredients)) {
+            returnRecipes.push(recipes.getRecipes()[x]);
         }
     }
     return returnRecipes;
@@ -29,7 +27,7 @@ const getRecipesBasedOnType = (type, callback) => {
 
 const getRecipeIdeas = (args, callback) => {
     debugger;
-    return recipes.getRecipes()[getRandomIntInclusive(1,100)];
+    return recipes.getRecipes()[getRandomIntInclusive(1, 100)];
 };
 
 module.exports = {
