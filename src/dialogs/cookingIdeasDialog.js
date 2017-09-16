@@ -9,7 +9,7 @@ class cookingIdeasDialog {
 
     getCookingIdeas(session, args) {
         debugger;
-        const reciepes = foodApi.getRecipeIdeas();
+        const recipes = foodApi.getRecipeIdeas();
         Builder.Prompts.text(session, CookingIdeasDialogMessage.Cooking); // The result of this input will be forwarded to the next step
     }
 

@@ -12,8 +12,8 @@ class IngredientsDialog {
         debugger;
         const ingredients = args.intent.entities; //[0].entity; ist zb "tomatoe";
         const ingredientName = [];
-        ingredients.each(function (ingredient, index, array) {
-            ingredientName.add(ingredient[index].entitiy);
+        ingredients.each(function (ingredient) {
+            ingredientName.push(ingredient.entitiy);
         });
         const recipies = foodApi.getRecipesFromIngredients(ingredientName);
         Builder.Prompts.text(session, IngredientsDialogMessage.Ingredients); // The result of this input will be forwarded to the next step
