@@ -21,7 +21,7 @@ class cookingIdeasDialog {
                 Builder.CardImage.create(session, 'http://i6.glitter-graphics.org/pub/1380/1380026gs8q17xwt3.gif')
             ])
             .buttons([
-                Builder.CardAction.openUrl(session, 'https://docs.microsoft.com/bot-framework', 'Get Started')
+                Builder.CardAction.openUrl(session,recipes.url, 'see whole recipe')
             ]);
         // attach the card to the reply message
         var msg = new Builder.Message(session).addAttachment(card);
