@@ -11,9 +11,12 @@ const getRecipesFromIngredients = (ingredients, callback) => {
     debugger;
     const returnRecipes = [];
     for (let i=0; i < ingredients.length; i++) {
-        returnRecipes.push(recipes.getRecipes().find(function (recipe) {
-            recipe.ingredients.toLowerCase().includes(ingredients[i].toLowerCase());
-        }));
+        for(var x in recipes.getRecipes()){
+            debugger;
+            if(recipes.getRecipes()[x].ingredients.toLowerCase().includes(ingredients[i].toLowerCase())){
+                return recipes.getRecipes()[x];
+            }
+        }
     }
     return returnRecipes;
 };

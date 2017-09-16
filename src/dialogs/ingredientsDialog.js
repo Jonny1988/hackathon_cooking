@@ -17,7 +17,7 @@ class IngredientsDialog {
         const recipies = foodApi.getRecipesFromIngredients(ingredientName);
         debugger;
         Builder.Prompts.text(session, IngredientsDialogMessage.Ingredients.
-        replace('%s',ingredientName.toString()).replace('%t',recipies[0])); // The result of this input will be forwarded to the next step
+        replace('%s',ingredientName.toString()).replace('%t',recipies.name)); // The result of this input will be forwarded to the next step
     }
 
 }
