@@ -9,14 +9,15 @@ class IngredientsDialog {
     getName() { return 'ingredientsDialog'; } // Needs to be unique otherwise an error occurs during registration
 
     getRecipeForIngredients(session, args) {
-        debugger;
         const ingredients = args.intent.entities; //[0].entity; ist zb "tomatoe";
         const ingredientName = [];
-        ingredients.forEach(function (ingredient) {
-            ingredientName.push(ingredient.entitiy);
-        });
+        for(var index in ingredients){
+            ingredientName.push(ingredients[index].entity);
+        }
         const recipies = foodApi.getRecipesFromIngredients(ingredientName);
-        Builder.Prompts.text(session, IngredientsDialogMessage.Ingredients); // The result of this input will be forwarded to the next step
+        debugger;
+        Builder.Prompts.text(session, IngredientsDialogMessage.Ingredients.
+        replace('%s',ingredientName.toString()).replace('%t',recipies[0])); // The result of this input will be forwarded to the next step
     }
 
 }

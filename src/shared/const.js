@@ -31,16 +31,18 @@ const StartDialogMessages = {
 };
 
 const HelpDialogMessage = {
-    GetHelp : "help"
+    GetHelp : "If you want to get recipes for ingredients use 'ingreadients: [ingreadients...]. " +
+    "If you want to get a recipe for a type e.g. pizza use 'how is the recipe for [type]| how do i cook [type]? |. " +
+    "If you don`t have any idea what to cook use 'i have no idea what i can cook now | Do you have an idea for a recipe?'."
 };
 const RecipeDialogMessage = {
-    Recipe : "recipe"
+    Recipe : "Here is your recipe"
 };
 const IngredientsDialogMessage = {
-    Ingredients : "What are your incredients"
+    Ingredients : "For the ingredients %s you can cook %t"
 };
 const CookingIdeasDialogMessage = {
-    Cooking : "getCookingIdeas"
+    Cooking : "Here are your recommendations:"
 };
 
 // TODO: Extend the Intents based on LUIS if you use it

@@ -8,10 +8,11 @@ const getRandomIntInclusive = function(min, max) {
 };
 
 const getRecipesFromIngredients = (ingredients, callback) => {
+    debugger;
     const returnRecipes = [];
     for (let i=0; i < ingredients.length; i++) {
-        returnRecipes.add(recipes.getRecipes().find(function (recipe) {
-            recipe.ingredients.includes(ingredients[i]);
+        returnRecipes.push(recipes.getRecipes().find(function (recipe) {
+            recipe.ingredients.toLowerCase().includes(ingredients[i].toLowerCase());
         }));
     }
     return returnRecipes;
