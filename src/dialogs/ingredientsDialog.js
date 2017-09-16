@@ -14,13 +14,20 @@ class IngredientsDialog {
         for(var index in ingredients){
             ingredientName.push(ingredients[index].entity);
         }
-        const recipies = foodApi.getRecipesFromIngredients(ingredientName);
-        var recipeName = "";
+        const reci = foodApi.getRecipesFromIngredients(ingredientName);
+        var recipies = reci.slice(0,5);
+        var recipeName = [];
         for( var rec in recipies){
-            recipeName = recipeName + ",\n" + ((recipies[rec].name==undefined?'' :recipies[rec].name ));
+            recipeName.push(new Builder.HeroCard(session)
+                .title(((recipies[rec].name==undefined?'' :recipies[rec].name ))));
         }
         Builder.Prompts.text(session, IngredientsDialogMessage.Ingredients.
-        replace('%s',ingredientName.toString()).replace('%t',recipeName)); // The result of this input will be forwarded to the next step
+        replace('%s',ingredientName.toString())); // The result of this input will be forwarded to the next step
+
+        var msg = new Builder.Message(session);
+        msg.attachmentLayout(Builder.AttachmentLayout.list)
+        msg.attachments(recipeName);
+        session.send(msg).endDialog();
     }
 
 }

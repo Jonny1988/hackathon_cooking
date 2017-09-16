@@ -39,7 +39,7 @@ const RecipeDialogMessage = {
     Recipe : "Here is your recipe"
 };
 const IngredientsDialogMessage = {
-    Ingredients : "For the ingredients %s you can cook %t"
+    Ingredients : "For the ingredients %s you can cook"
 };
 const CookingIdeasDialogMessage = {
     Cooking : "Here are your recommendations:"
