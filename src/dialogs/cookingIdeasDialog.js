@@ -18,7 +18,7 @@ class cookingIdeasDialog {
             .subtitle(recipes.ingredients)
             .text(recipes.description)
             .images([
-                Builder.CardImage.create(session, 'http://www.seriouseats.com/recipes/assets_c/2015/07/20150728-homemade-whopper-food-lab-35-thumb-1500xauto-425129.jpg')
+                Builder.CardImage.create(session, 'http://i6.glitter-graphics.org/pub/1380/1380026gs8q17xwt3.gif')
             ])
             .buttons([
                 Builder.CardAction.openUrl(session, 'https://docs.microsoft.com/bot-framework', 'Get Started')
