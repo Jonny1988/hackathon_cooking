@@ -1,4 +1,7 @@
-[
+'use strict';
+
+const getRecipes = function () {
+    return [
   {
     "name": "Easter Leftover Sandwich",
     "ingredients": "12 whole Hard Boiled Eggs\n1/2 cup Mayonnaise\n3 Tablespoons Grainy Dijon Mustard\n Salt And Pepper, to taste\n Several Dashes Worcestershire Sauce\n Leftover Baked Ham, Sliced\n Kaiser Rolls Or Other Bread\n Extra Mayonnaise And Dijon, For Spreading\n Swiss Cheese Or Other Cheese Slices\n Thinly Sliced Red Onion\n Avocado Slices\n Sliced Tomatoes\n Lettuce, Spinach, Or Arugula",
@@ -11461,4 +11464,8 @@
     "prepTime": "PT5M",
     "description": "The prettiest dip in my repertoire - my take on the Iranian preparation of Mast-o-Khiar (yogurt and cucumber). I use lots of fresh herbs, dried rose petals, toasted walnuts and a pop of added color and tartness from dried cranberries. \n"
   }
-]
+]};
+
+module.exports = {
+  getRecipes
+};

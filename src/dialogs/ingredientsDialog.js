@@ -12,7 +12,7 @@ class IngredientsDialog {
         debugger;
         const ingredients = args.intent.entities; //[0].entity; ist zb "tomatoe";
         const ingredientName = [];
-        ingredients.each(function (ingredient) {
+        ingredients.forEach(function (ingredient) {
             ingredientName.push(ingredient.entitiy);
         });
         const recipies = foodApi.getRecipesFromIngredients(ingredientName);

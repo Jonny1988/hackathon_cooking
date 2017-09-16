@@ -1,8 +1,5 @@
 'use strict';
-const fs = require("fs");
-const recipes = fs.readFileSync(__dirname+"/recipes.json");
-//iterates over all receipes and searches for matching ingredients, if all ingriends which were provided are found in
-// in the ingredient list of the receipe, we will add this to the found receipes list ;
+const recipes = require('./recipes.js');
 
 const getRandomIntInclusive = function(min, max) {
     min = Math.ceil(min);
@@ -13,7 +10,7 @@ const getRandomIntInclusive = function(min, max) {
 const getRecipesFromIngredients = (ingredients, callback) => {
     const returnRecipes = [];
     for (let i=0; i < ingredients.length; i++) {
-        returnRecipes.add(recipes.find(function (recipe) {
+        returnRecipes.add(recipes.getRecipes().find(function (recipe) {
             recipe.ingredients.includes(ingredients[i]);
         }));
     }
@@ -21,13 +18,14 @@ const getRecipesFromIngredients = (ingredients, callback) => {
 };
 
 const getRecipesBasedOnType = (type, callback) => {
-    return recipes.find(function (recipe) {
+    return recipes.getRecipes().get.find(function (recipe) {
         recipe.name.includes(type);
     });
 };
 
 const getRecipeIdeas = (args, callback) => {
-    return recipes[getRandomIntInclusive(1,100)];
+    debugger;
+    return recipes.getRecipes()[getRandomIntInclusive(1,100)];
 };
 
 module.exports = {
